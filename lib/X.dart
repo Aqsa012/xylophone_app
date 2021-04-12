@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
 
 const sounds = [
-  'nowavte1.',
+  'note1.wav',
   'note2.wav',
   'note3.wav',
   'note4.wav',
@@ -17,6 +17,15 @@ const colours = [
   Colors.green,
   Colors.teal,
   Colors.blue,
+  Colors.purple
+];
+const colours1 = [
+  Colors.teal,
+  Colors.orange,
+  Colors.blue,
+  Colors.yellow,
+  Colors.red,
+  Colors.green,
   Colors.purple
 ];
 
@@ -55,85 +64,110 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
-      backgroundColor: Colors.black,
-      body: Stack(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: buildAllKeys(),
-          ),
-          Column(
+          backgroundColor: Colors.black,
+          body: Stack(
             children: [
-              TextField(
-                //                     <--- TextField
-                maxLength: 7,
-                onChanged: (text) {
-                  _doSomething(text);
-                },
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  buildKey(color: Colors.orange, soundNumber: num1),
+                  buildKey(color: Colors.lightGreenAccent, soundNumber: num2),
+                  buildKey(color: Colors.pink, soundNumber: num3),
+                  buildKey(color: Colors.blueAccent, soundNumber: num4),
+                  buildKey(color: Colors.yellowAccent, soundNumber: num5),
+                  buildKey(color: Colors.redAccent, soundNumber: num6),
+                  buildKey(color: Colors.purple, soundNumber: num7),
+                ],
               ),
-              TextField(
-                //                       <--- TextField
-                onChanged: (text2) {
-                  _doSomething2(text2);
-                },
-              ),
-              TextField(
-                //                     <--- TextField
-                maxLength: 7,
-                onChanged: (text3) {
-                  _doSomething(text3);
-                },
-              ),
-              TextField(
-                //                       <--- TextField
-                onChanged: (text4) {
-                  _doSomething2(text4);
-                },
-              ),
-              TextField(
-                //                     <--- TextField
-                maxLength: 7,
-                onChanged: (text5) {
-                  _doSomething(text5);
-                },
-              ),
-              TextField(
-                //                       <--- TextField
-                onChanged: (text6) {
-                  _doSomething2(text6);
-                },
-              ),
-              TextField(
-                //                     <--- TextField
-                maxLength: 7,
-                onChanged: (text7) {
-                  _doSomething(text7);
-                },
+              Column(
+                children: [
+                  SizedBox(
+                    height: 15,
+                    width: 5,
+                  ),
+                  TextField(
+                    //                     <--- TextField
+                    maxLength: 7,
+                    onChanged: (text) {
+                      _doSomething(text);
+                    },
+                  ),
+                  SizedBox(
+                    height: 20,
+                    width: 5,
+                  ),
+                  TextField(
+                    //                       <--- TextField
+                    maxLength: 7,
+
+                    onChanged: (text2) {
+                      _doSomething2(text2);
+                    },
+                  ),
+                  SizedBox(
+                    height: 20,
+                    width: 5,
+                  ),
+                  TextField(
+                    //                     <--- TextField
+                    maxLength: 7,
+                    onChanged: (text3) {
+                      _doSomething(text3);
+                    },
+                  ),
+                  SizedBox(
+                    height: 20,
+                    width: 5,
+                  ),
+                  TextField(
+                    //                       <--- TextField
+                    maxLength: 7,
+
+                    onChanged: (text4) {
+                      _doSomething2(text4);
+                    },
+                  ),
+                  SizedBox(
+                    height: 20,
+                    width: 5,
+                  ),
+                  TextField(
+                    //                     <--- TextField
+                    maxLength: 7,
+                    onChanged: (text5) {
+                      _doSomething(text5);
+                    },
+                  ),
+                  SizedBox(
+                    height: 20,
+                    width: 5,
+                  ),
+                  TextField(
+                    //                       <--- TextField
+                    maxLength: 7,
+
+                    onChanged: (text6) {
+                      _doSomething2(text6);
+                    },
+                  ),
+                  SizedBox(
+                    height: 20,
+                    width: 5,
+                  ),
+                  TextField(
+                    //                     <--- TextField
+                    maxLength: 7,
+                    onChanged: (text7) {
+                      _doSomething(text7);
+                    },
+                  ),
+                ],
               ),
             ],
           ),
-        ],
-      ),
-    ));
-  }
-
-  List<Widget> buildAllKeys() {
-    List<Widget> keys = [];
-    for (var i = 0; i < sounds.length; i++) {
-      keys.add(
-        Expanded(
-          child: FlatButton(
-            color: colours[i],
-            onPressed: () {
-              final AudioCache player = new AudioCache();
-              player.play(sounds[i]);
-            },
-          ),
-        ),
-      );
-    }
-    return keys;
+        ));
   }
 
   int num1, num2, num3, num4, num5, num6, num7;
